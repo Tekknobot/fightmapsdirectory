@@ -7,9 +7,9 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
-    "express": "^4.12.4",
-    "sqlite3": "*",
-    "sequelize": "*"
+		"express": "^4.12.4",
+		"sqlite3": "*",
+		"sequelize": "*"
 	},
 	"keywords": [
 		"node",
