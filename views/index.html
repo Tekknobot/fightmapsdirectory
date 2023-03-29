@@ -3,17 +3,6 @@
 
 <!DOCTYPE html>
 <html>
-  
-    <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/client.js"></script>  
-  
-  
   <head>
     <title>Street Fighter Arcade Locations</title>
     <meta name="description" content="Sequelize SQLite3 Example">
@@ -28,13 +17,13 @@
       <h1>
         Street Fighter Arcade Locator
       </h1>
-    </header>
-
+    </header>    
+    
     <main>
       <p>Add a new machine:</p>
       <form>
         <label for="machines">Choose a machine:</label>
-        <select id="machineName" name="machines" onchange="alert(this.value)">
+        <select id="machineName" name="machines" onchange="this.value">
           <option value="SFIII">SF2</option>
           <option value="SFIII">SF3</option>
           <option value="SFIV">SFIV</option>
@@ -54,5 +43,14 @@
       <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>
     </main>
 
+    <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/client.js"></script>  
+    
   </body>
 </html>
