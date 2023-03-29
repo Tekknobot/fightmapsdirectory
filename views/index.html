@@ -158,7 +158,7 @@
        * that contains the map. 
        */
       #map {
-        height: 100%;
+        height: 50%
       }
 
       /* 
@@ -252,11 +252,19 @@
       <h1>
         Street Fighter Arcade Directory
       </h1>
-    </header>    
+    </header>   
     
-    <main>
-      <p>Add a new machine:</p>
-      <form>
+      <div class="pac-card" id="pac-card">
+        </div>
+        <div id="pac-container">
+          <input id="pac-input" type="text" placeholder="Enter a location" />
+        </div>
+        <div id="map"></div>
+        <div id="infowindow-content">
+          <span id="place-name" class="title"></span><br />
+          <span id="place-address"></span>
+        </div>
+    
         <label for="machineName">Choose machine:</label>
         <input list="machineNameList" id="machineName" name="machineList">
         <datalist id="machineNameList">
@@ -527,21 +535,9 @@
         <ul id="users">
         </ul>
       </section>
-      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>
-    </main>
+      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>    
     
     
-    <div class="pac-card" id="pac-card">
-      </div>
-      <div id="pac-container">
-        <input id="pac-input" type="text" placeholder="Enter a location" />
-      </div>
-    <div id="map"></div>
-    <div id="infowindow-content">
-      <span id="place-name" class="title"></span><br />
-      <span id="place-address"></span>
-    </div>
-
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
 
