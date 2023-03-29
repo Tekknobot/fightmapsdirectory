@@ -1,109 +1,92 @@
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
-#map {
-  height: 100%;
-}
+      /**
+       * @license
+       * Copyright 2019 Google LLC. All Rights Reserved.
+       * SPDX-License-Identifier: Apache-2.0
+       */
+      /* 
+       * Always set the map height explicitly to define the size of the div element
+       * that contains the map. 
+       */
+      #map {
+        height: 25%
+      }
 
-/* 
- * Optional: Makes the sample page fill the window. 
- */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+      /* 
+       * Optional: Makes the sample page fill the window. 
+       */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-body {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: rgb(104, 104, 104);
-}
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
 
-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  max-width: 400px;
-  padding: 20px;
-}
+      #infowindow-content .title {
+        font-weight: bold;
+      }
 
-input {
-  width: 100%;
-  height: 2.2rem;
-  margin-top: 0;
-  padding: 0.5em;
-  border: 0;
-  border-bottom: 2px solid gray;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-}
+      #infowindow-content {
+        display: none;
+      }
 
-input:focus {
-  border-bottom: 4px solid black;
-}
+      #map #infowindow-content {
+        display: inline;
+      }
 
-input[type=reset] {
-  width: auto;
-  height: auto;
-  border-bottom: 0;
-  background-color: transparent;
-  color: rgb(104, 104, 104);
-  font-size: 14px;
-}
+      .pac-card {
+        background-color: #fff;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+        margin: 10px;
+        padding: 0 0.5em;
+        font: 400 18px Roboto, Arial, sans-serif;
+        overflow: hidden;
+        font-family: Roboto;
+        padding: 0;
+      }
 
-.title {
-  width: 100%;
-  margin-block-end: 0;
-  font-weight: 500;
-}
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
 
-.note {
-  width: 100%;
-  margin-block-start: 0;
-  font-size: 12px;
-}
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
 
-.form-label {
-  width: 100%;
-  padding: 0.5em;
-}
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
 
-.full-field {
-  flex: 400px;
-  margin: 15px 0;
-}
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
 
-.slim-field-left {
-  flex: 1 150px;
-  margin: 15px 15px 15px 0px;
-}
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
 
-.slim-field-right {
-  flex: 1 150px;
-  margin: 15px 0px 15px 15px;
-}
-
-.my-button {
-  background-color: #000;
-  border-radius: 6px;
-  color: #fff;
-  margin: 10px;
-  padding: 6px 24px;
-  text-decoration: none;
-}
-
-.my-button:hover {
-  background-color: #666;
-}
-
-.my-button:active {
-  position: relative;
-  top: 1px;
-}
-
-img.powered-by-google {
-  margin: 0.5em;
-}
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
