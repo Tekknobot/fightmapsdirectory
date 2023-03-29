@@ -7,7 +7,7 @@ var Sequelize = require('sequelize');
 var app = express();
 
 // default user list
-var users = [
+var users = [[""]
       // ["Choose"],
       // ["Street Fighter IV","50-52nd Street", "New York", "United States"],
       // ["Street Fighter III","50-52nd Street", "New York", "United States"]
@@ -91,7 +91,7 @@ app.get("/toronto", function (request, response) {
     users.forEach(function(user) {
       var stringCity = user.streetAddress.value;
       if (stringCity.indexOf('Toronto') > -1) {
-        dbUsers.replace([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
+        dbUsers.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
       };
     });
   });
@@ -114,6 +114,7 @@ app.get("/clear", function (request, response) {
   User.clear({where: {}});
   response.redirect("/");
 });
+
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
