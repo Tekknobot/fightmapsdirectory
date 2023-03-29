@@ -79,7 +79,7 @@ app.get("/users", function (request, response) {
   var dbUsers=[];
   User.findAll().then(function(users) { // find all entries in the users tables
     users.forEach(function(user) {
-      dbUsers.push([user.machineName,user.streetAddress,user.cityName,user.countryName]); // adds their info to the dbUsers value
+      dbUsers.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
     });
     response.send(dbUsers); // sends dbUsers back to the page
   });
@@ -87,13 +87,12 @@ app.get("/users", function (request, response) {
 
 app.get("/toronto", function (request, response) {
   var dbUsers=[];
-  User.findAll().then(function(users) { // find all entries in the users tables
+  User.findAll().then(function(users) { // find all "Toronto" entries in the users tables
     users.forEach(function(user) {
-      if (user.streetAddress.value == "Toronto") {
-        dbUsers.push([user.machineName,user.streetAddress,user.cityName,user.countryName]); // adds their info to the dbUsers value
+      if (user.streetAddress.value.indexOf('Toronto') > -1) {
+        dbUsers.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
       };
     });
-    response.send(dbUsers); // sends dbUsers back to the page
   });
 });
 
@@ -111,7 +110,7 @@ app.get("/reset", function (request, response) {
 
 // removes all entries from the users table
 app.get("/clear", function (request, response) {
-  User.destroy({where: {}});
+  User.clear({where: {}});
   response.redirect("/");
 });
 
