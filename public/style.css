@@ -32,7 +32,7 @@
       }
 
       #infowindow-content {
-        display: none;
+        display: true;
       }
 
       #map #infowindow-content {
@@ -89,4 +89,10 @@
         font-size: 25px;
         font-weight: 500;
         padding: 6px 12px;
+      }
+
+      #map {
+        border: 1px;
+        border-style: solid;
+        border-color: #000000;
       }
