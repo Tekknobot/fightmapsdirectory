@@ -26,7 +26,8 @@ var sequelize = new Sequelize('database', process.env.DB_MACHINES, {
   },
     // Security note: the database is saved to the file `database.sqlite` on the local filesystem. It's deliberately placed in the `.data` directory
     // which doesn't get copied if someone remixes the project.
-  storage: 'data/database.sqlite'
+  
+  storage: '.data/database.sqlite'
 });
 
 // authenticate with the database
