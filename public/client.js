@@ -10,8 +10,10 @@ $(function() {
 
   $('form').submit(function(event) {
     event.preventDefault();
+    var machineName = $('input#machineName').val();
+    var streetAddress = $('input#streetAddress').val();
     var fName = $('input#fName').val();
-    var lName = $('input#lName').val();
+    var lName = $('input#lName').val();    
     $.post('/users?' + $.param({fName:fName, lName:lName}), function() {
       $('<li></li>').text(fName + " " + lName).appendTo('ul#users');
       $('input#fName').val('');

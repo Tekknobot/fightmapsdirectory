@@ -8,9 +8,9 @@ var app = express();
 
 // default user list
 var users = [
-      ["John","Hancock"],
-      ["Liz","Smith"],
-      ["Ahmed","Khan"]
+      ["Street Fighter V","50-52nd Street", "New York", "United States"],
+      ["Street Fighter IV","50-52nd Street", "New York", "United States"],
+      ["Street Fighter III","50-52nd Street", "New York", "United States"]
     ];
 var User;
 
@@ -35,10 +35,16 @@ sequelize.authenticate()
     console.log('Connection has been established successfully.');
     // define a new table 'users'
     User = sequelize.define('users', {
-      firstName: {
+      machineName: {
         type: Sequelize.STRING
       },
-      lastName: {
+      streetAddress: {
+        type: Sequelize.STRING
+      },
+      cityName: {
+        type: Sequelize.STRING
+      },
+      countryName: {
         type: Sequelize.STRING
       }
     });
@@ -55,7 +61,7 @@ function setup(){
     .then(function(){
       // Add the default users to the database
       for(var i=0; i<users.length; i++){ // loop through all users
-        User.create({ firstName: users[i][0], lastName: users[i][1]}); // create a new entry in the users table
+        User.create({ machineName: users[i][0], streetAddress: users[i][1], cityName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
       }
     });  
 }
@@ -72,7 +78,7 @@ app.get("/users", function (request, response) {
   var dbUsers=[];
   User.findAll().then(function(users) { // find all entries in the users tables
     users.forEach(function(user) {
-      dbUsers.push([user.firstName,user.lastName]); // adds their info to the dbUsers value
+      dbUsers.push([user.machineName,user.streetAddress,user.cityName,user.countryName]); // adds their info to the dbUsers value
     });
     response.send(dbUsers); // sends dbUsers back to the page
   });
@@ -80,7 +86,7 @@ app.get("/users", function (request, response) {
 
 // creates a new entry in the users table with the submitted values
 app.post("/users", function (request, response) {
-  User.create({ firstName: request.query.fName, lastName: request.query.lName});
+  User.create({ machineName: request.query.machineName, streetAddress: request.query.streetAddress, cityName: request.query.cityName, countryName: request.query.countryName});
   response.sendStatus(200);
 });
 
