@@ -1,18 +1,5 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Street Fighter Arcade Directory</title>
-    <meta name="description" content="Sequelize SQLite3 Example">
-    <link id="favicon" rel="icon" href="https://glitch.com/favicon-app.ico" type="image/x-icon">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
-    
-
     <title>Place Autocomplete Address Form</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link
@@ -21,593 +8,69 @@
     />
 
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script type="module" src="./index.js"></script>    
-    
-    
-    <title>Place Autocomplete</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script>
-      /**
-       * @license
-       * Copyright 2019 Google LLC. All Rights Reserved.
-       * SPDX-License-Identifier: Apache-2.0
-       */
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 40.749933, lng: -73.98633 },
-          zoom: 13,
-          mapTypeControl: false,
-        });
-        const card = document.getElementById("pac-card");
-        const input = document.getElementById("pac-input");
-        const biasInputElement = document.getElementById("use-location-bias");
-        const strictBoundsInputElement =
-          document.getElementById("use-strict-bounds");
-        const options = {
-          fields: ["formatted_address", "geometry", "name"],
-          strictBounds: false,
-          types: ["establishment"],
-        };
-
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
-
-        const autocomplete = new google.maps.places.Autocomplete(
-          input,
-          options
-        );
-
-        // Bind the map's bounds (viewport) property to the autocomplete object,
-        // so that the autocomplete requests use the current map bounds for the
-        // bounds option in the request.
-        autocomplete.bindTo("bounds", map);
-
-        const infowindow = new google.maps.InfoWindow();
-        const infowindowContent = document.getElementById("infowindow-content");
-
-        infowindow.setContent(infowindowContent);
-
-        const marker = new google.maps.Marker({
-          map,
-          anchorPoint: new google.maps.Point(0, -29),
-        });
-
-        autocomplete.addListener("place_changed", () => {
-          infowindow.close();
-          marker.setVisible(false);
-
-          const place = autocomplete.getPlace();
-
-          if (!place.geometry || !place.geometry.location) {
-            // User entered the name of a Place that was not suggested and
-            // pressed the Enter key, or the Place Details request failed.
-            window.alert(
-              "No details available for input: '" + place.name + "'"
-            );
-            return;
-          }
-
-          // If the place has a geometry, then present it on a map.
-          if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-          } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(17);
-          }
-
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
-          infowindowContent.children["place-name"].textContent = place.name;
-          infowindowContent.children["place-address"].textContent =
-            place.formatted_address;
-          infowindow.open(map, marker);
-        });
-
-        // Sets a listener on a radio button to change the filter type on Places
-        // Autocomplete.
-        function setupClickListener(id, types) {
-          const radioButton = document.getElementById(id);
-
-          radioButton.addEventListener("click", () => {
-            autocomplete.setTypes(types);
-            input.value = "";
-          });
-        }
-
-        setupClickListener("changetype-all", []);
-        setupClickListener("changetype-address", ["address"]);
-        setupClickListener("changetype-establishment", ["establishment"]);
-        setupClickListener("changetype-geocode", ["geocode"]);
-        setupClickListener("changetype-cities", ["(cities)"]);
-        setupClickListener("changetype-regions", ["(regions)"]);
-        biasInputElement.addEventListener("change", () => {
-          if (biasInputElement.checked) {
-            autocomplete.bindTo("bounds", map);
-          } else {
-            // User wants to turn off location bias, so three things need to happen:
-            // 1. Unbind from map
-            // 2. Reset the bounds to whole world
-            // 3. Uncheck the strict bounds checkbox UI (which also disables strict bounds)
-            autocomplete.unbind("bounds");
-            autocomplete.setBounds({
-              east: 180,
-              west: -180,
-              north: 90,
-              south: -90,
-            });
-            strictBoundsInputElement.checked = biasInputElement.checked;
-          }
-
-          input.value = "";
-        });
-        strictBoundsInputElement.addEventListener("change", () => {
-          autocomplete.setOptions({
-            strictBounds: strictBoundsInputElement.checked,
-          });
-          if (strictBoundsInputElement.checked) {
-            biasInputElement.checked = strictBoundsInputElement.checked;
-            autocomplete.bindTo("bounds", map);
-          }
-
-          input.value = "";
-        });
-      }
-
-      window.initMap = initMap;
-    </script>
-    <style>
-      /**
-       * @license
-       * Copyright 2019 Google LLC. All Rights Reserved.
-       * SPDX-License-Identifier: Apache-2.0
-       */
-      /* 
-       * Always set the map height explicitly to define the size of the div element
-       * that contains the map. 
-       */
-      #map {
-        height: 50%
-      }
-
-      /* 
-       * Optional: Makes the sample page fill the window. 
-       */
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
-
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        background-color: #fff;
-        border: 0;
-        border-radius: 2px;
-        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-        margin: 10px;
-        padding: 0 0.5em;
-        font: 400 18px Roboto, Arial, sans-serif;
-        overflow: hidden;
-        font-family: Roboto;
-        padding: 0;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 400px;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-    </style>
-    
-    
-    
-    
-    
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <header>
-      <h1>
-        Street Fighter Arcade Directory
-      </h1>
-    </header>   
-    
-    <div class="pac-card" id="pac-card">
-      </div>
-      <div id="pac-container">
-        <input id="pac-input" type="text" placeholder="Enter a location" />
-      </div>
-    <div id="map"></div>
-    <div id="infowindow-content">
-      <span id="place-name" class="title"></span><br />
-      <span id="place-address"></span>
-    </div>
+    <!-- Note: The address components in this sample are based on North American address format. You might need to adjust them for the locations relevant to your app. For more information, see
+https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+    -->
 
-    <div>
-      <form id="address-form" action="" method="get" autocomplete="off">
-            <p class="title">Sample address form for North America</p>
-            <p class="note"><em>* = required field</em></p>
-            <label class="full-field">
-              <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
-              <span class="form-label">Deliver to*</span>
-              <input
-                id="ship-address"
-                name="ship-address"
-                required
-                autocomplete="off"
-              />
-            </label>
-            <label class="full-field">
-              <span class="form-label">Apartment, unit, suite, or floor #</span>
-              <input id="address2" name="address2" />
-            </label>
-            <label class="full-field">
-              <span class="form-label">City*</span>
-              <input id="locality" name="locality" required />
-            </label>
-            <label class="slim-field-left">
-              <span class="form-label">State/Province*</span>
-              <input id="state" name="state" required />
-            </label>
-            <label class="slim-field-right" for="postal_code">
-              <span class="form-label">Postal code*</span>
-              <input id="postcode" name="postcode" required />
-            </label>
-            <label class="full-field">
-              <span class="form-label">Country/Region*</span>
-              <input id="country" name="country" required />
-            </label>
-            <button type="button" class="my-button">Save address</button>
+    <form id="address-form" action="" method="get" autocomplete="off">
+      <p class="title">Sample address form for North America</p>
+      <p class="note"><em>* = required field</em></p>
+      <label class="full-field">
+        <!-- Avoid the word "address" in id, name, or label text to avoid browser autofill from conflicting with Place Autocomplete. Star or comment bug https://crbug.com/587466 to request Chromium to honor autocomplete="off" attribute. -->
+        <span class="form-label">Deliver to*</span>
+        <input
+          id="ship-address"
+          name="ship-address"
+          required
+          autocomplete="off"
+        />
+      </label>
+      <label class="full-field">
+        <span class="form-label">Apartment, unit, suite, or floor #</span>
+        <input id="address2" name="address2" />
+      </label>
+      <label class="full-field">
+        <span class="form-label">City*</span>
+        <input id="locality" name="locality" required />
+      </label>
+      <label class="slim-field-left">
+        <span class="form-label">State/Province*</span>
+        <input id="state" name="state" required />
+      </label>
+      <label class="slim-field-right" for="postal_code">
+        <span class="form-label">Postal code*</span>
+        <input id="postcode" name="postcode" required />
+      </label>
+      <label class="full-field">
+        <span class="form-label">Country/Region*</span>
+        <input id="country" name="country" required />
+      </label>
+      <button type="button" class="my-button">Save address</button>
 
-            <!-- Reset button provided for development testing convenience.
-        Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
-            <input type="reset" value="Clear form" />
-          </form>      
-      
-      <form>
-        <label for="machineName">Add machine to directory:</label>
-        <input list="machineNameList" id="machineName" name="machineList" placeholder="Street Fighter Version">
-        <datalist id="machineNameList">
-          <option value="SF2"></option>
-          <option value="SF3"></option>
-          <option value="SFIV"></option>
-          <option value="SFV"></option>
-          <option value="SF6"></option>
-        </datalist>
-   
-        <input id="cityName" type="text" maxlength="100" placeholder="Gotham City Mall">
-        <input id="streetAddress" type="text" maxlength="100" placeholder="50-52nd Street"> 
-        
-        <!-- <input id="countryName" type="text" maxlength="100" placeholder="United States"> --> 
-        <!-- <label for="country">Country</label>
-          <input list="countryNameList" id="countryName" name="countryList">
-            <datalist id="countryNameList">
-                <option value="Afghanistan">Afghanistan</option>
-                <option value="Åland Islands">Åland Islands</option>
-                <option value="Albania">Albania</option>
-                <option value="Algeria">Algeria</option>
-                <option value="American Samoa">American Samoa</option>
-                <option value="Andorra">Andorra</option>
-                <option value="Angola">Angola</option>
-                <option value="Anguilla">Anguilla</option>
-                <option value="Antarctica">Antarctica</option>
-                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
-                <option value="Argentina">Argentina</option>
-                <option value="Armenia">Armenia</option>
-                <option value="Aruba">Aruba</option>
-                <option value="Australia">Australia</option>
-                <option value="Austria">Austria</option>
-                <option value="Azerbaijan">Azerbaijan</option>
-                <option value="Bahamas">Bahamas</option>
-                <option value="Bahrain">Bahrain</option>
-                <option value="Bangladesh">Bangladesh</option>
-                <option value="Barbados">Barbados</option>
-                <option value="Belarus">Belarus</option>
-                <option value="Belgium">Belgium</option>
-                <option value="Belize">Belize</option>
-                <option value="Benin">Benin</option>
-                <option value="Bermuda">Bermuda</option>
-                <option value="Bhutan">Bhutan</option>
-                <option value="Bolivia">Bolivia</option>
-                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                <option value="Botswana">Botswana</option>
-                <option value="Bouvet Island">Bouvet Island</option>
-                <option value="Brazil">Brazil</option>
-                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
-                <option value="Brunei Darussalam">Brunei Darussalam</option>
-                <option value="Bulgaria">Bulgaria</option>
-                <option value="Burkina Faso">Burkina Faso</option>
-                <option value="Burundi">Burundi</option>
-                <option value="Cambodia">Cambodia</option>
-                <option value="Cameroon">Cameroon</option>
-                <option value="Canada">Canada</option>
-                <option value="Cape Verde">Cape Verde</option>
-                <option value="Cayman Islands">Cayman Islands</option>
-                <option value="Central African Republic">Central African Republic</option>
-                <option value="Chad">Chad</option>
-                <option value="Chile">Chile</option>
-                <option value="China">China</option>
-                <option value="Christmas Island">Christmas Island</option>
-                <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Comoros">Comoros</option>
-                <option value="Congo">Congo</option>
-                <option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
-                <option value="Cook Islands">Cook Islands</option>
-                <option value="Costa Rica">Costa Rica</option>
-                <option value="Cote D'ivoire">Cote D'ivoire</option>
-                <option value="Croatia">Croatia</option>
-                <option value="Cuba">Cuba</option>
-                <option value="Cyprus">Cyprus</option>
-                <option value="Czech Republic">Czech Republic</option>
-                <option value="Denmark">Denmark</option>
-                <option value="Djibouti">Djibouti</option>
-                <option value="Dominica">Dominica</option>
-                <option value="Dominican Republic">Dominican Republic</option>
-                <option value="Ecuador">Ecuador</option>
-                <option value="Egypt">Egypt</option>
-                <option value="El Salvador">El Salvador</option>
-                <option value="Equatorial Guinea">Equatorial Guinea</option>
-                <option value="Eritrea">Eritrea</option>
-                <option value="Estonia">Estonia</option>
-                <option value="Ethiopia">Ethiopia</option>
-                <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
-                <option value="Faroe Islands">Faroe Islands</option>
-                <option value="Fiji">Fiji</option>
-                <option value="Finland">Finland</option>
-                <option value="France">France</option>
-                <option value="French Guiana">French Guiana</option>
-                <option value="French Polynesia">French Polynesia</option>
-                <option value="French Southern Territories">French Southern Territories</option>
-                <option value="Gabon">Gabon</option>
-                <option value="Gambia">Gambia</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Germany">Germany</option>
-                <option value="Ghana">Ghana</option>
-                <option value="Gibraltar">Gibraltar</option>
-                <option value="Greece">Greece</option>
-                <option value="Greenland">Greenland</option>
-                <option value="Grenada">Grenada</option>
-                <option value="Guadeloupe">Guadeloupe</option>
-                <option value="Guam">Guam</option>
-                <option value="Guatemala">Guatemala</option>
-                <option value="Guernsey">Guernsey</option>
-                <option value="Guinea">Guinea</option>
-                <option value="Guinea-bissau">Guinea-bissau</option>
-                <option value="Guyana">Guyana</option>
-                <option value="Haiti">Haiti</option>
-                <option value="Heard Island and Mcdonald Islands">Heard Island and Mcdonald Islands</option>
-                <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
-                <option value="Honduras">Honduras</option>
-                <option value="Hong Kong">Hong Kong</option>
-                <option value="Hungary">Hungary</option>
-                <option value="Iceland">Iceland</option>
-                <option value="India">India</option>
-                <option value="Indonesia">Indonesia</option>
-                <option value="Iran, Islamic Republic of">Iran, Islamic Republic of</option>
-                <option value="Iraq">Iraq</option>
-                <option value="Ireland">Ireland</option>
-                <option value="Isle of Man">Isle of Man</option>
-                <option value="Israel">Israel</option>
-                <option value="Italy">Italy</option>
-                <option value="Jamaica">Jamaica</option>
-                <option value="Japan">Japan</option>
-                <option value="Jersey">Jersey</option>
-                <option value="Jordan">Jordan</option>
-                <option value="Kazakhstan">Kazakhstan</option>
-                <option value="Kenya">Kenya</option>
-                <option value="Kiribati">Kiribati</option>
-                <option value="Korea, Democratic People's Republic of">Korea, Democratic People's Republic of</option>
-                <option value="Korea, Republic of">Korea, Republic of</option>
-                <option value="Kuwait">Kuwait</option>
-                <option value="Kyrgyzstan">Kyrgyzstan</option>
-                <option value="Lao People's Democratic Republic">Lao People's Democratic Republic</option>
-                <option value="Latvia">Latvia</option>
-                <option value="Lebanon">Lebanon</option>
-                <option value="Lesotho">Lesotho</option>
-                <option value="Liberia">Liberia</option>
-                <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
-                <option value="Liechtenstein">Liechtenstein</option>
-                <option value="Lithuania">Lithuania</option>
-                <option value="Luxembourg">Luxembourg</option>
-                <option value="Macao">Macao</option>
-                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
-                <option value="Madagascar">Madagascar</option>
-                <option value="Malawi">Malawi</option>
-                <option value="Malaysia">Malaysia</option>
-                <option value="Maldives">Maldives</option>
-                <option value="Mali">Mali</option>
-                <option value="Malta">Malta</option>
-                <option value="Marshall Islands">Marshall Islands</option>
-                <option value="Martinique">Martinique</option>
-                <option value="Mauritania">Mauritania</option>
-                <option value="Mauritius">Mauritius</option>
-                <option value="Mayotte">Mayotte</option>
-                <option value="Mexico">Mexico</option>
-                <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
-                <option value="Moldova, Republic of">Moldova, Republic of</option>
-                <option value="Monaco">Monaco</option>
-                <option value="Mongolia">Mongolia</option>
-                <option value="Montenegro">Montenegro</option>
-                <option value="Montserrat">Montserrat</option>
-                <option value="Morocco">Morocco</option>
-                <option value="Mozambique">Mozambique</option>
-                <option value="Myanmar">Myanmar</option>
-                <option value="Namibia">Namibia</option>
-                <option value="Nauru">Nauru</option>
-                <option value="Nepal">Nepal</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Netherlands Antilles">Netherlands Antilles</option>
-                <option value="New Caledonia">New Caledonia</option>
-                <option value="New Zealand">New Zealand</option>
-                <option value="Nicaragua">Nicaragua</option>
-                <option value="Niger">Niger</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="Niue">Niue</option>
-                <option value="Norfolk Island">Norfolk Island</option>
-                <option value="Northern Mariana Islands">Northern Mariana Islands</option>
-                <option value="Norway">Norway</option>
-                <option value="Oman">Oman</option>
-                <option value="Pakistan">Pakistan</option>
-                <option value="Palau">Palau</option>
-                <option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied</option>
-                <option value="Panama">Panama</option>
-                <option value="Papua New Guinea">Papua New Guinea</option>
-                <option value="Paraguay">Paraguay</option>
-                <option value="Peru">Peru</option>
-                <option value="Philippines">Philippines</option>
-                <option value="Pitcairn">Pitcairn</option>
-                <option value="Poland">Poland</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Puerto Rico">Puerto Rico</option>
-                <option value="Qatar">Qatar</option>
-                <option value="Reunion">Reunion</option>
-                <option value="Romania">Romania</option>
-                <option value="Russian Federation">Russian Federation</option>
-                <option value="Rwanda">Rwanda</option>
-                <option value="Saint Helena">Saint Helena</option>
-                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
-                <option value="Saint Lucia">Saint Lucia</option>
-                <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
-                <option value="Saint Vincent and The Grenadines">Saint Vincent and The Grenadines</option>
-                <option value="Samoa">Samoa</option>
-                <option value="San Marino">San Marino</option>
-                <option value="Sao Tome and Principe">Sao Tome and Principe</option>
-                <option value="Saudi Arabia">Saudi Arabia</option>
-                <option value="Senegal">Senegal</option>
-                <option value="Serbia">Serbia</option>
-                <option value="Seychelles">Seychelles</option>
-                <option value="Sierra Leone">Sierra Leone</option>
-                <option value="Singapore">Singapore</option>
-                <option value="Slovakia">Slovakia</option>
-                <option value="Slovenia">Slovenia</option>
-                <option value="Solomon Islands">Solomon Islands</option>
-                <option value="Somalia">Somalia</option>
-                <option value="South Africa">South Africa</option>
-                <option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
-                <option value="Spain">Spain</option>
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="Sudan">Sudan</option>
-                <option value="Suriname">Suriname</option>
-                <option value="Svalbard and Jan Mayen">Svalbard and Jan Mayen</option>
-                <option value="Swaziland">Swaziland</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="Syrian Arab Republic">Syrian Arab Republic</option>
-                <option value="Taiwan">Taiwan</option>
-                <option value="Tajikistan">Tajikistan</option>
-                <option value="Tanzania, United Republic of">Tanzania, United Republic of</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Timor-leste">Timor-leste</option>
-                <option value="Togo">Togo</option>
-                <option value="Tokelau">Tokelau</option>
-                <option value="Tonga">Tonga</option>
-                <option value="Trinidad and Tobago">Trinidad and Tobago</option>
-                <option value="Tunisia">Tunisia</option>
-                <option value="Turkey">Turkey</option>
-                <option value="Turkmenistan">Turkmenistan</option>
-                <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
-                <option value="Tuvalu">Tuvalu</option>
-                <option value="Uganda">Uganda</option>
-                <option value="Ukraine">Ukraine</option>
-                <option value="United Arab Emirates">United Arab Emirates</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="United States">United States</option>
-                <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
-                <option value="Uruguay">Uruguay</option>
-                <option value="Uzbekistan">Uzbekistan</option>
-                <option value="Vanuatu">Vanuatu</option>
-                <option value="Venezuela">Venezuela</option>
-                <option value="Viet Nam">Viet Nam</option>
-                <option value="Virgin Islands, British">Virgin Islands, British</option>
-                <option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
-                <option value="Wallis and Futuna">Wallis and Futuna</option>
-                <option value="Western Sahara">Western Sahara</option>
-                <option value="Yemen">Yemen</option>
-                <option value="Zambia">Zambia</option>
-                <option value="Zimbabwe">Zimbabwe</option>        
-            </datalist> -->
-        
-        <button type="submit" value="submit">Submit</button> 
-        
-      </form>  
-    </div>
-    
-    <div>
-      <p>Current Machines:</p>
-      <section class="users">
-        <ul id="users">
-        </ul>
-      </section>
-      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>
-    </div>
-      
-      
-    <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+      <!-- Reset button provided for development testing convenience.
+  Not recommended for user-facing forms due to risk of mis-click when aiming for Submit button. -->
+      <input type="reset" value="Clear form" />
+    </form>
+    <!-- Replace Powered By Google image src with self hosted image. https://developers.google.com/maps/documentation/places/web-service/policies#other_attribution_requirements -->
+    <img
+      class="powered-by-google"
+      src="https://storage.googleapis.com/geo-devrel-public-buckets/powered_by_google_on_white.png"
+      alt="Powered by Google"
+    />
 
-    <!-- Your web-app is https, so your scripts need to be too -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-            crossorigin="anonymous"></script>
-    <script src="/client.js"></script>  
-    
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkRkEc9Sxo8lUdD9aAVrvaMjEPDhBw8IY&callback=initMap&libraries=places&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
       defer
-    ></script>    
-    
+    ></script>
   </body>
 </html>
