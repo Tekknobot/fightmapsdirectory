@@ -85,6 +85,19 @@ app.get("/users", function (request, response) {
   });
 });
 
+app.get("/toronto", function (request, response) {
+  var dbUsers=[];
+  User.findAll().then(function(users) { // find all entries in the users tables
+    users.forEach(function(user) {
+      dbUsers.push([user.machineName,user.streetAddress,user.cityName,user.countryName]); // adds their info to the dbUsers value
+    });
+    response.send(dbUsers); // sends dbUsers back to the page
+  });
+
+  let filterToronto = users.filter(user => user.name.includes("Toronto"))
+    
+});
+
 // creates a new entry in the users table with the submitted values
 app.post("/users", function (request, response) {
   User.create({ machineName: request.query.machineName, cityName: request.query.cityName, streetAddress: request.query.streetAddress , countryName: request.query.countryName});
