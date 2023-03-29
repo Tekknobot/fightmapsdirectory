@@ -277,9 +277,9 @@
     </div>
 
     <div>
-      <button type="submit" value="submit">Submit</button> 
       <form>
-        <label for="machineName">Add machine to directory:</label>
+        <button id="insert" type="submit" value="insert" onclick="gfg_Run()">Insert</button> 
+        <label for="machineName">Location to directory:</label>
         <input list="machineNameList" id="machineName" name="machineList" placeholder="Street Fighter Version" required >
         <datalist id="machineNameList">
           <option value="SF2"></option>
@@ -572,11 +572,14 @@
     ></script>
     
     
-    <script type="text/javascript">
-    document.getElementById('button1').onChange = function () {
-        document.getElementById('cityName').value = document.getElementById('place-name').innerHTML;
-    }
-    </script>    
+    <script>
+        var span = document.getElementById("place-name");
+        var el_down = document.getElementById("insert");
+
+        function gfg_Run() {
+            el_down.innerHTML = span.textContent;
+        }        
+    </script>
     
   </body>
 </html>
