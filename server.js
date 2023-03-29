@@ -7,7 +7,7 @@ var Sequelize = require('sequelize');
 var app = express();
 
 // default user list
-var users = [[""]
+var users = [
       // ["Choose"],
       // ["Street Fighter IV","50-52nd Street", "New York", "United States"],
       // ["Street Fighter III","50-52nd Street", "New York", "United States"]
@@ -85,18 +85,6 @@ app.get("/users", function (request, response) {
   });
 });
 
-app.get("/toronto", function (request, response) {
-  var dbUsers=[];
-  User.findAll().then(function(users) { // find all "Toronto" entries in the users tables
-    users.forEach(function(user) {
-      var stringCity = user.streetAddress.value;
-      if (stringCity.indexOf('Toronto') > -1) {
-        dbUsers.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
-      };
-    });
-  });
-});
-
 // creates a new entry in the users table with the submitted values
 app.post("/users", function (request, response) {
   User.create({ machineName: request.query.machineName, cityName: request.query.cityName, streetAddress: request.query.streetAddress , countryName: request.query.countryName});
@@ -111,7 +99,7 @@ app.get("/reset", function (request, response) {
 
 // removes all entries from the users table
 app.get("/clear", function (request, response) {
-  User.clear({where: {}});
+  User.destroy({where: {}});
   response.redirect("/");
 });
 
