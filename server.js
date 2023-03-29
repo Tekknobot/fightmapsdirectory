@@ -8,9 +8,9 @@ var app = express();
 
 // default user list
 var users = [
-      ["Street Fighter V","50-52nd Street", "New York", "United States"],
-      ["Street Fighter IV","50-52nd Street", "New York", "United States"],
-      ["Street Fighter III","50-52nd Street", "New York", "United States"]
+      // ["Choose"],
+      // ["Street Fighter IV","50-52nd Street", "New York", "United States"],
+      // ["Street Fighter III","50-52nd Street", "New York", "United States"]
     ];
 var User;
 
