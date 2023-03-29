@@ -254,17 +254,20 @@
       </h1>
     </header>   
     
-      <div class="pac-card" id="pac-card">
-        </div>
-        <div id="pac-container">
-          <input id="pac-input" type="text" placeholder="Enter a location" />
-        </div>
-        <div id="map"></div>
-        <div id="infowindow-content">
-          <span id="place-name" class="title"></span><br />
-          <span id="place-address"></span>
-        </div>
-    
+    <div class="pac-card" id="pac-card">
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Enter a location" />
+      </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
+
+    <div>
+      <p>Add a new machine:</p>
+      <form>
         <label for="machineName">Choose machine:</label>
         <input list="machineNameList" id="machineName" name="machineList">
         <datalist id="machineNameList">
@@ -279,7 +282,7 @@
         <input id="cityName" type="text" maxlength="100" placeholder="Gotham City"> 
         
         <!-- <input id="countryName" type="text" maxlength="100" placeholder="United States"> --> 
-        <label for="country">Country</label>
+        <!-- <label for="country">Country</label>
           <input list="countryNameList" id="countryName" name="countryList">
             <datalist id="countryNameList">
                 <option value="Afghanistan">Afghanistan</option>
@@ -528,16 +531,10 @@
                 <option value="Zimbabwe">Zimbabwe</option>        
             </datalist>
         <button type="submit" value="submit">Submit</button>
-      </form>
-        
-      <p>Machines:</p>
-      <section class="users">
-        <ul id="users">
-        </ul>
-      </section>
-      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>    
-    
-    
+      </form>  
+    </div>
+      
+      
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
 
