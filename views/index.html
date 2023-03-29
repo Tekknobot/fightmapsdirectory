@@ -289,8 +289,8 @@
           <option value="SF6"></option>
         </datalist>
    
-        <input id="cityName" type="text" maxlength="100" placeholder="Gotham City Mall">
-        <input id="streetAddress" type="text" maxlength="100" placeholder="50-52nd Street"> 
+        <p id="cityName" type="text" maxlength="100" placeholder="Gotham City Mall"></p>
+        <p id="streetAddress" type="text" maxlength="100" placeholder="50-52nd Street"></p> 
         
         <button type="submit" value="submit">Submit</button> 
         
@@ -323,12 +323,15 @@
     
     
     <script>
-        var span = document.getElementById("place-address");
-        var el_down = document.getElementById("insert");
-
+        var spanName = document.getElementById("place-name");
+        var name_down = document.getElementById("cityName");
+        var spanAddress = document.getElementById("place-address");
+        var address_down = document.getElementById("streetAddress");  
+      
         function gfg_Run() {
-            el_down.innerHTML = span.textContent;
-        }        
+            name_down.innerHTML = spanName.textContent;
+            address_down.innerHTML = spanAddess.textContent;
+        }      
     </script>
     
   </body>
