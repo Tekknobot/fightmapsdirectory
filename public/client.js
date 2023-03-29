@@ -12,12 +12,14 @@ $(function() {
     event.preventDefault();
     var machineName = $('input#machineName').val();
     var streetAddress = $('input#streetAddress').val();
-    var fName = $('input#fName').val();
-    var lName = $('input#lName').val();    
-    $.post('/users?' + $.param({fName:fName, lName:lName}), function() {
-      $('<li></li>').text(fName + " " + lName).appendTo('ul#users');
-      $('input#fName').val('');
-      $('input#lName').val('');
+    var cityName = $('input#cityName').val();
+    var countryName = $('input#countryName').val();    
+    $.post('/users?' + $.param({machineName:machineName, streetAddress:streetAddress, cityName:cityName, countryName:countryName}), function() {
+      $('<li></li>').text(machineName + " " + streetAddress + " " + cityName + " " + countryName).appendTo('ul#users');
+      $('input#machineName').val('');
+      $('input#streetAddress').val('');
+      $('input#cityName').val('');
+      $('input#countryName').val('');      
       $('input').focus();
     });
   });
