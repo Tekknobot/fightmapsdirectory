@@ -18,8 +18,8 @@ $(function() {
       
     
     var machineName = $('input#machineName').val();
-    var streetAddress = spanAddress.textContent;
-    var cityName = spanName.textContent;     
+    var cityName = spanName.textContent;
+    var streetAddress = spanAddress.textContent;     
     
     $.post('/users?' + $.param({machineName:machineName, cityName:cityName, streetAddress:streetAddress}), function() {
       $('<li></li>').text(machineName + " " + cityName + " " + streetAddress).appendTo('ul#users');
