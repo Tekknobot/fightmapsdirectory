@@ -9,22 +9,19 @@ $(function() {
   });
 
   $('form').submit(function(event) {
-    event.preventDefault();
-    var machineName = $('input#machineName').val();
-    var streetAddress = $('input#streetAddress').val();
-    var cityName = $('input#cityName').val();    
+    event.preventDefault(); 
 
     var spanName = document.getElementById("place-name");
     var name_down = document.getElementById("cityName");
     var spanAddress = document.getElementById("place-address");
     var address_down = document.getElementById("streetAddress");  
       
-    function gfg_Run() {
-      name_down.innerHTML = spanName.textContent;
-      address_down.innerHTML = spanAddress.textContent;
-    }       
     
-    $.post('/users?' + $.param({machineName:machineName, streetAddress:streetAddress, cityName:cityName}), function() {
+    var machineName = $('input#machineName').val();
+    var streetAddress = spanAddress.textContent;
+    var cityName = spanName.textContent;     
+    
+    $.post('/users?' + $.param({machineName:machineName, cityName:cityName, streetAddress:streetAddress}), function() {
       $('<li></li>').text(machineName + " " + cityName + " " + streetAddress).appendTo('ul#users');
       $('input#machineName').val('');
       $('input#cityName').val('');
