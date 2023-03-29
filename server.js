@@ -16,7 +16,7 @@ var User;
 
 // setup a new database
 // using database credentials set in .env
-var sequelize = new Sequelize('database', process.env.DB_USER, process.env.DB_PASS, {
+var sequelize = new Sequelize('database', process.env.DB_MACHINES, {
   host: '0.0.0.0',
   dialect: 'sqlite',
   pool: {
