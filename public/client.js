@@ -15,7 +15,7 @@ $(function() {
     var cityName = $('input#cityName').val();
     var countryName = $('input#countryName').val();    
     $.post('/users?' + $.param({machineName:machineName, streetAddress:streetAddress, cityName:cityName, countryName:countryName}), function() {
-      $('<li></li>').text(machineName + " " + streetAddress + " " + cityName + " " + countryName).appendTo('ul#users');
+      $('<li></li>').text(machineName + " | " + streetAddress + " | " + cityName + " |  " + countryName).appendTo('ul#users');
       $('input#machineName').val('');
       $('input#streetAddress').val('');
       $('input#cityName').val('');
