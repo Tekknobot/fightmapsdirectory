@@ -266,10 +266,9 @@
     </div>
 
     <div>
-      <p>Add a new machine:</p>
       <form>
-        <label for="machineName">Choose machine:</label>
-        <input list="machineNameList" id="machineName" name="machineList">
+        <label for="machineName">Add machine to directory:</label>
+        <input list="machineNameList" id="machineName" name="machineList" placeholder="Street Fighter Version">
         <datalist id="machineNameList">
           <option value="SF2"></option>
           <option value="SF3"></option>
@@ -278,8 +277,8 @@
           <option value="SF6"></option>
         </datalist>
    
-        <input id="streetAddress" type="text" maxlength="100" placeholder="50-52nd Street">
-        <input id="cityName" type="text" maxlength="100" placeholder="Gotham City"> 
+        <input id="cityName" type="text" maxlength="100" placeholder="Gotham City Mall">
+        <input id="streetAddress" type="text" maxlength="100" placeholder="50-52nd Street"> 
         
         <!-- <input id="countryName" type="text" maxlength="100" placeholder="United States"> --> 
         <!-- <label for="country">Country</label>
@@ -529,9 +528,20 @@
                 <option value="Yemen">Yemen</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>        
-            </datalist>
-        <button type="submit" value="submit">Submit</button>
+            </datalist> -->
+        
+        <button type="submit" value="submit">Submit</button> 
+        
       </form>  
+    </div>
+    
+    <div>
+      <p>Current Machines:</p>
+      <section class="users">
+        <ul id="users">
+        </ul>
+      </section>
+      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>
     </div>
       
       
