@@ -22,17 +22,15 @@
     <main>
       <p>Add a new machine:</p>
       <form>
-        <label>Choose a browser from this list:
-        <input list="browsers" name="myBrowser" /></label>
-        <datalist id="browsers">
-          <option value="Chrome">
-          <option value="Firefox">
-          <option value="Internet Explorer">
-          <option value="Opera">
-          <option value="Safari">
-          <option value="Microsoft Edge">
-          </option>
-        <datalist></datalist>
+        <label for="machineName">Choose machine:</label>
+        <input list="machineNameList" id="machineName" name="machineList">
+        <datalist id="machineNameList">
+          <option value="SF2"></option>
+          <option value="SF3"></option>
+          <option value="SFIV"></option>
+          <option value="SFV"></option>
+          <option value="SF6"></option>
+        </datalist>
    
         <input id="streetAddress" type="text" maxlength="100" placeholder="50-52nd Street">
         <input id="cityName" type="text" maxlength="100" placeholder="Gotham City"> 
