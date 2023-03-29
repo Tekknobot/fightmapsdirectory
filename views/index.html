@@ -277,6 +277,7 @@
     </div>
 
     <div>
+      <button type="submit" value="submit">Submit</button> 
       <form>
         <label for="machineName">Add machine to directory:</label>
         <input list="machineNameList" id="machineName" name="machineList" placeholder="Street Fighter Version" required >
@@ -568,11 +569,12 @@
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkRkEc9Sxo8lUdD9aAVrvaMjEPDhBw8IY&callback=initMap&libraries=places&v=weekly"
       defer
-    ></script>  
+    ></script>
+    
     
     <script type="text/javascript">
-    document.getElementById('place-name').onChange = function () {
-        document.getElementById('cityName').value = document.getElementById('span_id').innerHTML;
+    document.getElementById('button1').onChange = function () {
+        document.getElementById('cityName').value = document.getElementById('place-name').innerHTML;
     }
     </script>    
     
