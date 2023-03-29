@@ -89,8 +89,9 @@ app.get("/toronto", function (request, response) {
   var dbUsers=[];
   User.findAll().then(function(users) { // find all "Toronto" entries in the users tables
     users.forEach(function(user) {
-      if (user.streetAddress.value.indexOf('Toronto') > -1) {
-        dbUsers.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
+      var stringCity = user.streetAddress.value;
+      if (stringCity.indexOf('Toronto') > -1) {
+        dbUsers.replace([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
       };
     });
   });
