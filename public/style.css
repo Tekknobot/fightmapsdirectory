@@ -21,6 +21,11 @@
         padding: 0;
       }
 
+      p {
+        font-family: Roboto;
+        font-size: 10px;
+      }      
+
       #description {
         font-family: Roboto;
         font-size: 15px;
