@@ -239,6 +239,7 @@
     </div>  
     
     <div>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
       <p>Latest Machines:</p>
       <section class="users">
         <ul class="no-bullets" id="users"></ul>
@@ -246,6 +247,41 @@
       <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a> | <a href="/filter">Filter</a></p> 
     </div>
       
+
+    <table id="myTable" class="table table-borderless table-striped table-earning">
+      <thead>
+        <tr>
+          <th>date</th>
+          <th>file name</th>
+        </tr>
+      </thead>
+      <tbody id="testBody"></tbody>
+    </table>
+
+    <script>
+      const items1 = [
+        { date: "10/17/2018", name: "john doe" },
+        { date: "10/18/2018", name: "jane doe" },
+      ];
+      const items2 = [
+        { date: "10/17/2019", name: "john doe" },
+        { date: "10/18/2019", name: "jane doe" },
+      ];
+      function loadTableData(items) {
+        const table = document.getElementById("testBody");
+        items.forEach( item => {
+          let row = table.insertRow();
+          let date = row.insertCell(0);
+          date.innerHTML = item.date;
+          let name = row.insertCell(1);
+          name.innerHTML = item.name;
+        });
+      }
+      loadTableData(items1);
+      loadTableData(items2);
+      loadTableData([]);
+    </script>    
+
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
 
