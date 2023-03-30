@@ -260,13 +260,20 @@
 
     <script>
       const items1 = [
-        { date: "10/17/2018", name: "john doe" },
-        { date: "10/18/2018", name: "jane doe" },
+        users.forEach(function(user) {
+          $('<p></p>').text(user[0]).appendTo('ul#users');
+        })
       ];
       const items2 = [
-        { date: "10/17/2019", name: "john doe" },
-        { date: "10/18/2019", name: "jane doe" },
+        users.forEach(function(user) {
+          $('<p></p>').text(user[1]).appendTo('ul#users');
+        })
       ];
+      const items3 = [
+        users.forEach(function(user) {
+          $('<p></p>').text(user[2]).appendTo('ul#users');
+        })
+      ];      
       function loadTableData(items) {
         const table = document.getElementById("testBody");
         items.forEach( item => {
@@ -279,7 +286,7 @@
       }
       loadTableData(items1);
       loadTableData(items2);
-      loadTableData([]);
+      loadTableData(items3);
     </script>    
 
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
