@@ -104,8 +104,7 @@ app.get("/clear", function (request, response) {
   response.redirect("/");
 });
 
-app.get("/filter", function (request, response) {
-  filterCity();
+app.get("/populate", function (request, response) {
   response.redirect("/");
 });
 
