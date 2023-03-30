@@ -242,7 +242,11 @@
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for City">
       <p>Latest Machines:</p>
       <section class="users">
-        <table id="myTable" class="no-bullets" id="users"></table>
+        <table id="myTable">
+          <tr>
+            <ul class="no-bullets" id="users"></ul>
+          </tr>
+        </table>
       </section>
       <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a> | <a href="/filter">Filter</a></p> 
     </div>   
@@ -279,7 +283,7 @@
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
+        table = document.getElementById("users");
         tr = table.getElementsByTagName("tr");
         for (i = 0; i < tr.length; i++) {
           td = tr[i].getElementsByTagName("td")[0];
