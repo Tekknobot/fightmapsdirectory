@@ -243,11 +243,9 @@
       <p>Latest Machines:</p>
       <section class="users">
         <table id="myTable">
-          <tr>
-            <td>
-              <ul class="no-bullets" id="users"></ul>
-            </td>
-          </tr>
+          <tbody>
+            <ul class="no-bullets" id="users"></ul>
+          </tbody>
         </table>
       </section>
       <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a> | <a href="/filter">Filter</a></p> 
@@ -301,6 +299,33 @@
       }
       </script>
 
+      <script>
+        const courses = [{
+          "Name": "Communications",
+          "Date": "22 April 2022",
+          "Code": "CS368"                
+          },
+          {
+          "Name": "Programming",
+          "Date": "22 April 2021",
+          "Code": "CS368"                
+          },
+          {
+          "Name": "Networks",
+          "Date": "22 April 2002",
+          "Code": "CS368"                
+          }]
+        const table = document.getElementById("tableBody");
+        courses.map(course=>{
+        let row = table.insertRow();
+        let name = row.insertCell(0);
+        name.innerHTML = course.Name;
+        let date = row.insertCell(1);
+        date.innerHTML = course.Date;
+        let code = row.insertCell(2);
+        code.innerHTML = course.Code;
+        });
+      </script>
 
   </body>
 </html>
