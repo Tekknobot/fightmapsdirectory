@@ -296,6 +296,14 @@
     </script>
 
     <script>
+      const items1 = [
+        { date: "10/17/2018", name: "john doe" },
+        { date: "10/18/2018", name: "jane doe" },
+      ];
+      const items2 = [
+        { date: "10/17/2019", name: "john doe" },
+        { date: "10/18/2019", name: "jane doe" },
+      ];
       function loadTableData(items) {
         const table = document.getElementById("testBody");
         items.forEach( item => {
@@ -306,6 +314,9 @@
           name.innerHTML = item.name;
         });
       }
+      loadTableData(items1);
+      loadTableData(items2);
+      loadTableData([]);
     </script>
 
     <table id="myTable" class="table table-borderless table-striped table-earning">
