@@ -29,6 +29,33 @@ $(function() {
       $('input').focus();
     });
   });
+
+  const courses = [{
+    "Name": "Communications",
+    "Date": "22 April 2022",
+    "Code": "CS368"                
+    },
+    {
+    "Name": "Programming",
+    "Date": "22 April 2021",
+    "Code": "CS368"                
+    },
+    {
+    "Name": "Networks",
+    "Date": "22 April 2002",
+    "Code": "CS368"                
+    }]
+  const table = document.getElementById("tableBody");
+  courses.map(course=>{
+  let row = table.insertRow();
+  let name = row.insertCell(0);
+  name.innerHTML = course.Name;
+  let date = row.insertCell(1);
+  date.innerHTML = course.Date;
+  let code = row.insertCell(2);
+  code.innerHTML = course.Code;
+  }); 
+    
 });  
 
            
