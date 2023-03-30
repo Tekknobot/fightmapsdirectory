@@ -6,19 +6,10 @@
   <head>
     <title>Fightmaps</title>
     <style>
-      table {
-        border-spacing: 0;
-        width: 100%;
-        border: 1px solid #ddd;
-      }
-      
-      th, td {
-        text-align: left;
-        padding: 16px;
-      }
-      
-      tr:nth-child(even) {
-        background-color: #f2f2f2
+      ul.no-bullets {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
       }
       </style>    
     <meta name="description" content="Street Fighter Arcade Directory">
@@ -215,16 +206,12 @@
       </form>  
     </div>
     
-    <!-- <div>
+    <div>
       <p>Latest Machines:</p>
       <section class="users">
         <ul id="users"></ul>
       </section>
       <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p> 
-    </div> -->
-      
-    <div>
-      <button id="submit" type="submit" value="submit" onclick="show_Toronto()">Toronto</button> 
     </div>
       
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
@@ -252,22 +239,6 @@
             name_down.innerHTML = spanName.textContent;
             address_down.innerHTML = spanAddress.textContent;
         }      
-    </script>    
-
-    <script>
-      function show_Toronto() {
-        User.findAll().then(function(users) { // find all entries in the users tables
-          users.forEach(function(user) {
-            let addressText = user.streetAddress.value;
-            let result = addressText.includes("Toronto");            
-            if (result=="Toronto") {
-              <ul id="users"></ul>
-            }
-          });
-        });
-      };      
-              
-      
     </script>
 
   </body>
