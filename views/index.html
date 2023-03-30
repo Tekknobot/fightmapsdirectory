@@ -215,15 +215,17 @@
       </form>  
     </div>
     
-    <div>
+    <!-- <div>
       <p>Latest Machines:</p>
       <section class="users">
-        <li id="users">
-        </li>
+        <ul id="users"></ul>
       </section>
       <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p> 
-    </div>
+    </div> -->
       
+    <div>
+      <button id="submit" type="submit" value="submit" onclick="show_Toronto()">Toronto</button> 
+    </div>
       
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
@@ -251,6 +253,21 @@
             address_down.innerHTML = spanAddress.textContent;
         }      
     </script>    
+
+    <script>
+      function show_Toronto() {
+        User.findAll().then(function(users) { // find all entries in the users tables
+          users.forEach(function(user) {
+            let streetAddressText = user.streetAddress.value;
+            if (streetAddressText=="Toronto") {
+              <ul id="users"></ul>
+            }
+          });
+        });
+      };      
+              
+      
+    </script>
 
   </body>
 </html>
