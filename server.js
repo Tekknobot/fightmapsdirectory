@@ -121,7 +121,8 @@ app.get("/clear", function (request, response) {
 });
 
 app.get("/filter", function (request, response) {
-  ACell.ListObject.DataBodyRange.ClearContents;
+  setupCity();
+  response.redirect("/");
 });
 
 // listen for requests :)
