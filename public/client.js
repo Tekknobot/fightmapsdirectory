@@ -4,7 +4,7 @@
 $(function() {
   $.get('/users', function(users) {
     users.forEach(function(user) {
-      $('<p></p>').text(user[0] + " / " + user[1] + " / " + user[2]).appendTo('ul#users');
+      $('<table></table>').text(user[0] + " / " + user[1] + " / " + user[2]).appendTo('ul#users');
     });
   });
 
