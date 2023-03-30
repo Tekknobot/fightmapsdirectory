@@ -70,18 +70,13 @@ function setup(){
 
 // populate table with filtered city
 function setupCity(){
-  User.sync({force: true}) // We use 'force: true' in this example to drop the table users if it already exists, and create a new one. You'll most likely want to remove this setting in your own apps
-    .then(function(){
-      // Add the default users to the database
-      for(var i=0; i<users.length; i++){ // loop through all users
-        let filterText = users.streetAddress.value;
-        let result = filterText.includes("Toronto");
-        if (result == "Toronto") {
-          User.create({ machineName: users[i][0], streetAddress: users[i][1], locationName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
-        }
-      }
+  for(var i=0; i<users.length; i++){ // loop through all users
+    let filterText = users.streetAddress.value;
+    let result = filterText.includes("Toronto");
+    if (result == "Toronto") {
+      User.create({ machineName: users[i][0], streetAddress: users[i][1], locationName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
     }
-  );  
+  }
 }
 
 // http://expressjs.com/en/starter/static-files.html
