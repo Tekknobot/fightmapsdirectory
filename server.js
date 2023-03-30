@@ -115,7 +115,7 @@ app.get("/clear", function (request, response) {
 });
 
 app.get("/filter", function (request, response) {
-  filterCity();
+  response.filterCity();
 });
 
 // listen for requests :)
