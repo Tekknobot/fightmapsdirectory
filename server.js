@@ -42,7 +42,7 @@ sequelize.authenticate()
       streetAddress: {
         type: Sequelize.STRING
       },
-      cityName: {
+      locationName: {
         type: Sequelize.STRING
       },
       countryName: {
@@ -62,7 +62,7 @@ function setup(){
     .then(function(){
       // Add the default users to the database
       for(var i=0; i<users.length; i++){ // loop through all users
-        User.create({ machineName: users[i][0], streetAddress: users[i][1], cityName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
+        User.create({ machineName: users[i][0], streetAddress: users[i][1], locationName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
       }
     }
   );  
@@ -80,7 +80,7 @@ app.get("/users", function (request, response) {
   var dbUsers=[];
   User.findAll().then(function(users) { // find all entries in the users tables
     users.forEach(function(user) {
-      dbUsers.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
+      dbUsers.push([user.machineName,user.locationName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
     });
     response.send(dbUsers); // sends dbUsers back to the page
   });
@@ -88,7 +88,7 @@ app.get("/users", function (request, response) {
 
 // creates a new entry in the users table with the submitted values
 app.post("/users", function (request, response) {
-  User.create({ machineName: request.query.machineName, cityName: request.query.cityName, streetAddress: request.query.streetAddress , countryName: request.query.countryName});
+  User.create({ machineName: request.query.machineName, locationName: request.query.locationName, streetAddress: request.query.streetAddress , countryName: request.query.countryName});
   response.sendStatus(200);
 });
 

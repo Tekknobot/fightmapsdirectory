@@ -12,19 +12,19 @@ $(function() {
     event.preventDefault(); 
 
     var spanName = document.getElementById("place-name");
-    var name_down = document.getElementById("cityName");
+    var name_down = document.getElementById("locationName");
     var spanAddress = document.getElementById("place-address");
     var address_down = document.getElementById("streetAddress");  
       
     
     var machineName = $('input#machineName').val();
-    var cityName = spanName.textContent;
+    var locationName = spanName.textContent;
     var streetAddress = spanAddress.textContent;     
     
-    $.post('/users?' + $.param({machineName:machineName, cityName:cityName, streetAddress:streetAddress}), function() {
-      $('<p></p>').text(machineName + " / " + cityName + " / " + streetAddress).appendTo('ul#users');
+    $.post('/users?' + $.param({machineName:machineName, locationName:locationName, streetAddress:streetAddress}), function() {
+      $('<p></p>').text(machineName + " / " + locationName + " / " + streetAddress).appendTo('ul#users');
       $('input#machineName').val('');
-      $('input#cityName').val('');
+      $('input#locationName').val('');
       $('input#streetAddress').val('');     
       $('input').focus();
     });
