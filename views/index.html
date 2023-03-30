@@ -263,7 +263,7 @@
 
     <div>
       <form>
-        <button id="submit" type="submit" value="submit" onclick="gfg_Run()">Submit</button> 
+        <button id="submit" type="submit" value="submit" onclick="Run()">Submit</button> 
         <label for="machineName">Location to directory:</label>
         <input list="machineNameList" id="machineName" name="machineList" placeholder="Street Fighter Version" required>
         <datalist id="machineNameList">
@@ -284,7 +284,7 @@
       <section class="users">
         <ul class="no-bullets" id="users"></ul>
       </section>
-      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p> 
+      <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a> | <a href="/filter">Filter</a></p> 
     </div>
       
     <script src="https://button.glitch.me/button.js" data-style="glitch"></script>
@@ -308,7 +308,7 @@
         var spanAddress = document.getElementById("place-address");
         var address_down = document.getElementById("streetAddress");  
       
-        function gfg_Run() {
+        function Run() {
             name_down.innerHTML = spanName.textContent;
             address_down.innerHTML = spanAddress.textContent;
         }      
