@@ -258,8 +258,9 @@
       function show_Toronto() {
         User.findAll().then(function(users) { // find all entries in the users tables
           users.forEach(function(user) {
-            let streetAddressText = user.streetAddress.value;
-            if (streetAddressText=="Toronto") {
+            let addressText = user.streetAddress.value;
+            let result = addressText.includes("Toronto");            
+            if (result=="Toronto") {
               <ul id="users"></ul>
             }
           });
