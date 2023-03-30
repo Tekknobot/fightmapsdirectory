@@ -300,7 +300,7 @@
       </script>
 
       <script>
-        const courses = [{
+        const rowData = [{
           "Name": "Communications",
           "Date": "22 April 2022",
           "Code": "CS368"                
@@ -316,10 +316,10 @@
           "Code": "CS368"                
           }]
         const table = document.getElementById("tableBody");
-        courses.map(course=>{
+        rowData.map(row=>{
         let row = table.insertRow();
         let name = row.insertCell(0);
-        name.innerHTML = course.Name;
+        name.innerHTML = row.Name;
         });
       </script>
 
