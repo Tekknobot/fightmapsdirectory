@@ -90,6 +90,7 @@ app.get("/users", function (request, response) {
 app.post("/users", function (request, response) {
   User.create({ machineName: request.query.machineName, locationName: request.query.locationName, streetAddress: request.query.streetAddress , countryName: request.query.countryName});
   response.sendStatus(200);
+  response.redirect("/");
 });
 
 // drops the table users if it already exists, populates new users table it with just the default users.
