@@ -295,17 +295,33 @@
       }
     </script>
 
-    <table id="myTable">
-      <tr class="header">
-        <th style="width:30%;">Version</th>
-        <th style="width:30%;">Location</th>
-        <th style="width:40%;">Address</th>
-      </tr>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Germany</td>
-        <td>Germany</td>
-      </tr>
-    </table>  
+    <script>
+      function loadTableData(items) {
+        const table = document.getElementById("testBody");
+        items.forEach( item => {
+          let row = table.insertRow();
+          let date = row.insertCell(0);
+          date.innerHTML = item.date;
+          let name = row.insertCell(1);
+          name.innerHTML = item.name;
+        });
+      }
+      loadTableData(items1);
+      loadTableData(items2);
+      loadTableData([]);
+    </script>
+
+    <table id="myTable" class="table table-borderless table-striped table-earning">
+      <thead>
+        <tr>
+          <th>Version</th>
+          <th>Location</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody id="testBody"></tbody>
+    </table> 
+
+
   </body>
 </html>
