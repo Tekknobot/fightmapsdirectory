@@ -120,14 +120,8 @@ app.get("/clear", function (request, response) {
   response.redirect("/");
 });
 
-// removes all entries from the users table
-app.get("/clear", function (request, response) {
-  User.destroy({where: {}});
-  response.redirect("/");
-});
-
-// removes all entries from the users table
 app.get("/filter", function (request, response) {
+  ACell.ListObject.DataBodyRange.ClearContents;
   response.redirect("/");
 });
 
