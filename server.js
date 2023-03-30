@@ -104,6 +104,11 @@ app.get("/clear", function (request, response) {
   response.redirect("/");
 });
 
+// removes all entries from the users table
+app.get("/clear", function (request, response) {
+  User.destroy({where: {}});
+  response.redirect("/");
+});
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
