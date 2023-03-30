@@ -29,17 +29,6 @@ $(function() {
       $('input').focus();
     });
   });
-});  
-
-$(function() {
-  $.get('/toronto', function(users) {
-    users.forEach(function(user) {
-      let streetAddressText = user.streetAddress.value;
-      if (streetAddressText.includes("Toronto")) {
-        $('<li></li>').text(user[0] + " " + user[1] + " " + user[2]);
-      };
-    });
-  });
-}); 
+});
 
            
