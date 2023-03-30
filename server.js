@@ -115,10 +115,6 @@ app.get("/clear", function (request, response) {
   response.redirect("/");
 });
 
-app.get("/filter", function (request, response) {
-  setupCity();
-});
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
