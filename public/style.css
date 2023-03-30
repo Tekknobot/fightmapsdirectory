@@ -29,7 +29,11 @@
       li {
         font-family: Roboto;
         font-size: 13px;
-      }       
+      }     
+      
+      td {
+        width: 100px;
+      }          
 
       #description {
         font-family: Roboto;
