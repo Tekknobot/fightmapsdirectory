@@ -96,6 +96,7 @@ app.get("/toronto", function (request, response) {
         if (streetAddressText.includes("Toronto")) {
           dbUsersTemp.push([user.machineName,user.cityName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
         };
+        response.send(dbUsersTemp); // sends dbUsers back to the page
       });
     });
   });
