@@ -70,7 +70,7 @@ function setup(){
 
 // populate table with filtered city
 function setupCity(){
-  User.sync({force: false}) // We use 'force: true' in this example to drop the table users if it already exists, and create a new one. You'll most likely want to remove this setting in your own apps
+  User.sync({force: true}) // We use 'force: true' in this example to drop the table users if it already exists, and create a new one. You'll most likely want to remove this setting in your own apps
     .then(function(){
       // Add the default users to the database
       for(var i=0; i<users.length; i++){ // loop through all users
