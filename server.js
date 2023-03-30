@@ -87,7 +87,7 @@ app.get("/users", function (request, response) {
 }); 
 
 // creates a new entry in the users table with the submitted values
-app.post("/myTable", function (request, response) {
+app.post("/users", function (request, response) {
   User.create({ machineName: request.query.machineName, locationName: request.query.locationName, streetAddress: request.query.streetAddress , countryName: request.query.countryName});
   response.sendStatus(200);
 });
