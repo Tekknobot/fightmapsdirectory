@@ -115,7 +115,8 @@ app.get("/clear", function (request, response) {
 });
 
 app.get("/filter", function (request, response) {
-  response.filterCity();
+  filterCity();
+  response.redirect("/");
 });
 
 // listen for requests :)
