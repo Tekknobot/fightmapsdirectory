@@ -5,7 +5,7 @@ $(function() {
   $.get('/users', function(users) {
     users.forEach(function(user) {
       // $('<tr><td>' + user[0] + " / " + user[1] + " / " + user[2] + '</td></tr>').appendTo('table#myTable');
-      $('<tr><td>' + user[0] + '</td><td>' + user[0] + '</td><td>' + user[0] + '</td></tr>').appendTo('table#myTable');
+      $('<tr><td>' + user[0] + '</td><td>' + user[1] + '</td><td>' + user[2] + '</td></tr>').appendTo('table#myTable');
     });
   });
 
