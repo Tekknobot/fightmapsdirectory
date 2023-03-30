@@ -22,7 +22,7 @@ $(function() {
     var streetAddress = spanAddress.textContent;     
     
     $.post('/users?' + $.param({machineName:machineName, cityName:cityName, streetAddress:streetAddress}), function() {
-      $('<li></li>').text(machineName + " " + cityName + " " + streetAddress).appendTo('ul#users');
+      $('<p></p>').text(machineName + " / " + cityName + " / " + streetAddress).appendTo('ul#users');
       $('input#machineName').val('');
       $('input#cityName').val('');
       $('input#streetAddress').val('');     
