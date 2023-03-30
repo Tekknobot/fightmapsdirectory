@@ -86,16 +86,15 @@ app.get("/users", function (request, response) {
   });
 });
 
-$(function() {
-  $.get('/toronto', function(users) {
-    users.forEach(function(user) {
-      let streetAddressText = user.streetAddress.value;
-      if (streetAddressText.includes("Toronto")) {
-        $('<li></li>').text(user[0] + " " + user[1] + " " + user[2]);
-      };
-    });
+app.get("/toronto", function (request, response) {
+  User.findAll().then(function(users) { // find all entries in the users tables
+  users.forEach(function(user) {
+    let streetAddressText = user.streetAddress.value;
+    if (streetAddressText.includes("Toronto")) {
+      $('<li></li>').text(user[0] + " " + user[1] + " " + user[2]);
+    };
   });
-}); 
+});
 
 // creates a new entry in the users table with the submitted values
 app.post("/users", function (request, response) {
