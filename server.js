@@ -69,11 +69,10 @@ function setup(){
 }
 
 // populate table with filtered city
-function setupCity(){
+function filterCity(){
   for(var i=0; i<users.length; i++){ // loop through all users
     let filterText = users.streetAddress.value;
-    let result = filterText.includes("Toronto");
-    if (result == "Toronto") {
+    if (filterText.includes("Toronto")) {
       User.create({ machineName: users[i][0], streetAddress: users[i][1], locationName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
     }
   }
@@ -113,6 +112,10 @@ app.get("/reset", function (request, response) {
 app.get("/clear", function (request, response) {
   User.destroy({where: {}});
   response.redirect("/");
+});
+
+app.get("/filter", function (request, response) {
+  filterCity();
 });
 
 // listen for requests :)
