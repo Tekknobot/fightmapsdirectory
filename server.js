@@ -64,7 +64,8 @@ function setup(){
       for(var i=0; i<users.length; i++){ // loop through all users
         User.create({ machineName: users[i][0], streetAddress: users[i][1], cityName: users[i][2], countryName: users[i][3]}); // create a new entry in the users table
       }
-    });  
+    }
+  );  
 }
 
 // http://expressjs.com/en/starter/static-files.html
