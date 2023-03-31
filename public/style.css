@@ -45,7 +45,11 @@
       table {
         border-collapse:separate; 
         border-spacing: 0 0.8em;
-      }    
+      }  
+      
+      #wrapper {
+        vertical-align: middle;
+      }
 
       #submitForm {
         background-color: #363636;
