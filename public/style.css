@@ -45,11 +45,7 @@
       table {
         border-collapse:separate; 
         border-spacing: 0 0.8em;
-      }
-
-      input {
-        width: 50%;
-      }      
+      }    
 
       #submitForm {
         background-color: #363636;
