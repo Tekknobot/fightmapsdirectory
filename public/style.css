@@ -14,7 +14,10 @@
       /* 
        * Optional: Makes the sample page fill the window. 
        */
-      html,
+      html {
+        display: table;
+        margin: auto;
+      }
       body {
         background-color: #363636;
         height: 100%;
