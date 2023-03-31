@@ -131,9 +131,9 @@
       }
 
       #map {
-        border: 1px;
+        border: 4px;
         border-style: solid;
-        border-color: #000000;
+        border-color: #ffffff;
       }
 
       #ulFooter {
