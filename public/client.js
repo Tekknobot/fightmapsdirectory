@@ -28,6 +28,10 @@ $(function() {
       $('input').focus();
     });
   });
+
+  window.onload=function(){
+    document.getElementById("randomizeButton").click();
+  };  
 });  
 
            
