@@ -135,3 +135,8 @@
         border-style: solid;
         border-color: #000000;
       }
+
+      #ulFooter {
+        color: grey;
+        display: inline;
+      }
