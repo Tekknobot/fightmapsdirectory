@@ -39,7 +39,7 @@
       }   
       
       td {
-        color: pink;
+        color: #ffc0cb;
       }      
 
       table {
@@ -133,7 +133,7 @@
       #map {
         border: 4px;
         border-style: solid;
-        border-color: #ffffff;
+        border-color: #ffc0cb;
       }
 
       #ulFooter {
