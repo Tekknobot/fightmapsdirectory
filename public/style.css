@@ -15,7 +15,6 @@
        * Optional: Makes the sample page fill the window. 
        */
       html {
-        display: table;
         margin: auto;
       }
       body {
@@ -24,7 +23,6 @@
         max-width: 480px;
         margin: 0;
         padding: 0;
-        display: table-cell;
         vertical-align: middle;
       }
 
