@@ -49,10 +49,6 @@
         display: inline;
       }
 
-      .header-image {
-        background-image: url(“header-image.png”);
-        }
-
       .pac-card {
         background-color: #fff;
         border: 0;
