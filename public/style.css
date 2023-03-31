@@ -14,11 +14,7 @@
       /* 
        * Optional: Makes the sample page fill the window. 
        */
-      html {
-        height: 100%;
-        display: table;
-        margin: auto;
-      }
+      html,
       body {
         background-color: #363636;
         height: 100%;
@@ -27,6 +23,8 @@
         padding: 0;
         display: table-cell;
         vertical-align: middle;
+        display: table;
+        margin: auto;        
       }
 
       p {
