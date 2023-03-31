@@ -31,7 +31,11 @@
       li {
         font-family: Roboto;
         font-size: 13px;
-      }           
+      }      
+      
+      td {
+        color: white;
+      }        
 
       #description {
         font-family: Roboto;
