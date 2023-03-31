@@ -4,7 +4,7 @@
 $(function() {
   $.get('/users', function(users) {
     users.forEach(function(user) {
-      $('<tr><td>' + user[0].bold() + " / " + user[1].bold() + " / " + user[2] + '</td></tr>').appendTo('table#myTable');
+      $('<tr><td>' + user[0] + " / " + user[1].bold() + " / " + user[2] + '</td></tr>').appendTo('table#myTable');
     });
   });
 
@@ -16,7 +16,6 @@ $(function() {
     var spanAddress = document.getElementById("place-address");
     var address_down = document.getElementById("streetAddress");  
       
-    
     var machineName = $('input#machineName').val();
     var locationName = spanName.textContent;
     var streetAddress = spanAddress.textContent;     
