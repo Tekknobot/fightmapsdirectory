@@ -118,8 +118,8 @@ app.get("/users", function (request, response) {
       dbUsers.push([user.machineName,user.locationName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
     });
     response.send(dbUsers); // sends dbUsers back to the page
-    sortTable();
   });
+  sortTable();
 }); 
 
 // creates a new entry in the users table with the submitted values
