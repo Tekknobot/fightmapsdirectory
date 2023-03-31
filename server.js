@@ -68,22 +68,39 @@ function setup(){
   );  
 }
 
-function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
+function sortTable() {
+  //get the parent table for convenience
+  let table = document.getElementById("myTable");
 
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
+  //1. get all rows
+  let rowsCollection = table.querySelectorAll("tr");
 
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+  //2. convert to array
+  let rows = Array.from(rowsCollection)
+    .slice(1); //skip the header row
 
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+  //3. shuffle
+  shuffleArray(rows);
+
+  //4. add back to the DOM
+  for (const row of rows) {
+    table.appendChild(row);
   }
+}
 
-  return array;
+
+/**
+ * Randomize array element order in-place.
+ * Using Durstenfeld shuffle algorithm.
+ * from: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/12646864#12646864
+ */
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
 }
 
 // http://expressjs.com/en/starter/static-files.html
@@ -100,8 +117,8 @@ app.get("/users", function (request, response) {
     users.forEach(function(user) {
       dbUsers.push([user.machineName,user.locationName,user.streetAddress,user.countryName]); // adds their info to the dbUsers value
     });
-    shuffle(users);
     response.send(dbUsers); // sends dbUsers back to the page
+    sortTable();
   });
 }); 
 
