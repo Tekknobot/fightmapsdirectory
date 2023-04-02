@@ -47,6 +47,26 @@
         border-spacing: 0 0.8em;
       }
 
+      /* unvisited link */
+      a:link {
+        color: pink;
+      }
+
+      /* visited link */
+      a:visited {
+        color: pink;
+      }
+
+      /* mouse over link */
+      a:hover {
+        color: hotpink;
+      }
+
+      /* selected link */
+      a:active {
+        color: pink;
+      }      
+
       #submitForm {
         background-color: #363636;
         padding: 0;
