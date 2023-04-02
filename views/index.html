@@ -182,32 +182,29 @@
     <div class="pac-card" id="pac-card">
       </div>
       <div id="pac-container">
-        <input id="pac-input" type="text" placeholder="Enter location name" required/>
+        <form id="submitForm">       
+          <datalist id="machineNameList">
+            <option value="SF2"></option>
+            <option value="SF3"></option>
+            <option value="SF4"></option>
+            <option value="SF5"></option>
+            <option value="SF6"></option>
+            <option value="MVSC2"></option>                     
+            <input list="machineNameList" id="machineName" name="machineList" placeholder="Fighter Version" required>         
+          <input id="pac-input" type="text" placeholder="Enter location name" required/>
+          <button id="submit" type="submit" value="submit" onclick="Submit()">Submit</button>
+
+        </datalist>
+        
+        <!-- <button type="submit" value="submit">Submit</button> -->
+        
+      </form>           
       </div>
     <div id="map"></div>
     <div id="infowindow-content">
       <span id="place-name" class="title"></span><br />
       <span id="place-address"></span>
-    </div>
-
-    <div>
-      <form id="submitForm"> 
-        <!-- <label for="machineName">Location to directory:</label> -->
-        <input list="machineNameList" id="machineName" name="machineList" placeholder="Fighter Version" required>
-        <button id="submit" type="submit" value="submit" onclick="Submit()">Submit</button>        
-        <datalist id="machineNameList">
-          <option value="SF2"></option>
-          <option value="SF3"></option>
-          <option value="SF4"></option>
-          <option value="SF5"></option>
-          <option value="SF6"></option>
-          <option value="MVSC2"></option>
-        </datalist>
-        
-        <!-- <button type="submit" value="submit">Submit</button> -->
-        
-      </form>  
-    </div>  
+    </div> 
     
     <div>
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter">
